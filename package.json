@@ -1,8 +1,14 @@
 {
-  "name": "buttons",
-  "displayName": "Buttons",
-  "description": "",
+  "name": "vscode-button-bar",
+  "displayName": "vscode-button-bar",
+  "description": "One-click commands for VS Code",
   "version": "0.0.1",
+  "publisher": "wangc",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "blue",
+    "theme": "dark"
+  },
   "engines": {
     "vscode": "^1.100.0"
   },
@@ -17,7 +23,7 @@
         {
           "id": "buttons-view",
           "name": "Buttons",
-          "icon": ""
+          "icon": "images/icon.png"
         }
       ]
     },
