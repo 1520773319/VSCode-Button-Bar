@@ -1,0 +1,91 @@
+{
+  "name": "buttons",
+  "displayName": "Buttons",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "buttons-view",
+          "name": "Buttons",
+          "icon": ""
+        }
+      ]
+    },
+    "menus": {
+      "view/item/context": [
+        {
+          "command": "myExtension.editButtonContent",
+          "when": "viewItem == custom-button-item",
+          "group": "navigation"
+        },
+        {
+          "command": "myExtension.deleteButton",
+          "when": "viewItem == custom-button-item",
+          "group": "navigation"
+        },
+        {
+          "command": "myExtension.renameButton",
+          "when": "viewItem == custom-button-item",
+          "group": "navigation"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "myExtension.addButton",
+        "title": "Add New Button"
+      },
+      {
+        "command": "myExtension.deleteButton",
+        "title": "Delete Button"
+      },
+      {
+        "command": "myExtension.renameButton",
+        "title": "Rename Button"
+      },
+      {
+        "command": "myExtension.runButton",
+        "title": "Run Button"
+      },
+      {
+        "command": "myExtension.editButtonContent",
+        "title": "Edit Content"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "webpack --mode production",
+    "compile": "webpack --mode none",
+    "watch": "webpack --mode none --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.100.0",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.25.1",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
+  }
+}
