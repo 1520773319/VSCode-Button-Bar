@@ -3,20 +3,28 @@ import { ButtonsTreeDataProvider, ButtonItem, parseString } from './buttonsTreeD
 
 export function activate(context: vscode.ExtensionContext) {
 	const treeDataProvider = new ButtonsTreeDataProvider(context);
-	vscode.window.createTreeView('buttons-view', { treeDataProvider });
+	const treeView = vscode.window.createTreeView('buttons-view', {
+		treeDataProvider,
+		dragAndDropController: treeDataProvider.dragAndDropController
+	});
+
+
+	treeDataProvider.refreshItemIcon(context);
+
+
 
 	// 注册：新增按钮命令
 	context.subscriptions.push(
-	vscode.commands.registerCommand('myExtension.addButton', async () => {
-		const name = await vscode.window.showInputBox({
-		prompt: 'Enter button name',
-		placeHolder: 'e.g. My Custom Button'
-		});
+		vscode.commands.registerCommand('myExtension.addButton', async () => {
+			const name = await vscode.window.showInputBox({
+				prompt: 'Enter button name',
+				placeHolder: 'e.g. My Custom Button'
+			});
 
-		if (name) {
-		treeDataProvider.addButton(context, name);
-		}
-	})
+			if (name) {
+				treeDataProvider.addButton(context, name);
+			}
+		})
 	);
 
 	// 注册：执行按钮命令（左键）

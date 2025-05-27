@@ -2,7 +2,7 @@
   "name": "vscode-button-bar",
   "displayName": "vscode-button-bar",
   "description": "One-click commands for VS Code",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "wangc",
   "icon": "images/icon.png",
   "galleryBanner": {
@@ -23,7 +23,7 @@
         {
           "id": "buttons-view",
           "name": "Buttons",
-          "icon": "images/icon.png"
+          "icon": ""
         }
       ]
     },
